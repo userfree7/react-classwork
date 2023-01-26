@@ -1,10 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { isPropertySignature } from 'typescript'
 
-function Title() {
-    return <h1>Hello Title</h1>
+interface ITitleProps {
+    text: string
 }
-function Content() {
+const Title = (props: ITitleProps) => {
+    console.log(props)
+
+    return <h1>Hello {props.text}Title</h1>
+}
+const Content = () => {
     return (
         <React.Fragment>
             <p>
@@ -25,7 +31,8 @@ function Content() {
 function App() {
     return (
         <>
-            <Title />
+            <Title text="React" />
+            <Title text="TS" />
             <Content />
         </>
     )
