@@ -1,29 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-//jsx
-const h1 = (
-    <h1 id="title" className="dfdf">
-        Hello React.js
-    </h1>
-)
-console.log(h1)
-
-let a = 10
-let b = `hello test`
-const list = (
-    <ul>
-        <li>list Item {a + 10 + 10}</li>
-        <li>list Item {b}</li>
-        <li>list Item 3</li>
-    </ul>
-)
-const content = (
-    <div>
-        {h1}
-        {list}
-    </div>
-)
+function Title() {
+    return <h1>Hello Title</h1>
+}
+function Content() {
+    return (
+        <React.Fragment>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                qui velit necessitatibus facere unde itaque, ipsam aspernatur
+                placeat ratione et, at, quia officia suscipit quasi? Odit esse
+                ex quia accusamus!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Corrupti placeat asperiores saepe libero animi accusamus
+                eligendi laboriosam. Debitis consequatur quidem expedita facere
+                ex eligendi, libero nisi impedit ut suscipit reiciendis.
+            </p>
+        </React.Fragment>
+    )
+}
+function App() {
+    return (
+        <>
+            <Title />
+            <Content />
+        </>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{content}</React.StrictMode>)
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+)
