@@ -1,4 +1,4 @@
-import './Content.css'
+import classes from './Content.module.css'
 
 type Props = {
     text1: string
@@ -9,7 +9,7 @@ export const Content1 = (props: Props) => {
     let data = false
     return (
         <>
-            <p className="content">{props.text1}</p>
+            <p className={`${classes.text}`}>{props.text1}</p>
             <p>{props.text2}</p>
             <div>Year:{props.year}</div>
         </>
