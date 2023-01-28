@@ -1,3 +1,4 @@
+import { type } from '@testing-library/user-event/dist/type'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { isPropertySignature } from 'typescript'
@@ -5,26 +6,23 @@ import { isPropertySignature } from 'typescript'
 interface ITitleProps {
     text: string
 }
+type ContentProps = {
+    text1: string
+    text2: string
+    year: number
+}
 const Title = (props: ITitleProps) => {
     console.log(props)
 
-    return <h1>Hello {props.text}Title</h1>
+    return <h1>Hello {props.text}</h1>
 }
-const Content = () => {
+
+const Content = (props: ContentProps) => {
     return (
         <React.Fragment>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                qui velit necessitatibus facere unde itaque, ipsam aspernatur
-                placeat ratione et, at, quia officia suscipit quasi? Odit esse
-                ex quia accusamus!
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Corrupti placeat asperiores saepe libero animi accusamus
-                eligendi laboriosam. Debitis consequatur quidem expedita facere
-                ex eligendi, libero nisi impedit ut suscipit reiciendis.
-            </p>
+            <p>{props.text1}</p>
+            <p>{props.text2}</p>
+            <div>Year:{props.year}</div>
         </React.Fragment>
     )
 }
@@ -33,7 +31,11 @@ function App() {
         <>
             <Title text="React" />
             <Title text="TS" />
-            <Content />
+            <Content
+                text1={'Hello world 1'}
+                text2={'Hello world 2'}
+                year={2023}
+            />
         </>
     )
 }
