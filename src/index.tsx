@@ -2,7 +2,7 @@ import { type } from '@testing-library/user-event/dist/type'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { isPropertySignature } from 'typescript'
-import Content from './Content'
+import { Content1 } from './Content'
 
 interface ITitleProps {
     text: string
