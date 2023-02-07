@@ -3,13 +3,7 @@ import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
 
 type Props = {}
-type ProductProps = {
-    title: string
-    description: string
-    type: string
-    capacity: string
-    price: number
-}
+
 const ProductsList = (props: Props) => {
     return (
         <>
@@ -18,14 +12,8 @@ const ProductsList = (props: Props) => {
             </Typography>
             <Grid container spacing={3}>
                 {productsArray.map(
-                    ({
-                        title,
-                        description,
-                        type,
-                        capacity,
-                        price,
-                    }: ProductProps) => (
-                        <Grid item xs={12} sm={6} md={4}>
+                    ({ title, description, type, capacity, price }, i) => (
+                        <Grid item xs={12} sm={6} md={4} key={i}>
                             <ProductListItem
                                 title={title}
                                 description={description}
