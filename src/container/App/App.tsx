@@ -31,7 +31,7 @@ const App = (props: Props) => {
                 <button onClick={() => AddProductToCart(5, 500)}>
                     Add to cart (5 count, $ 500 price){' '}
                 </button>
-                <Main />
+                <Main AddProductToCart={AddProductToCart} />
                 <Footer />
             </StyledEngineProvider>
         </>
