@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import { Container } from '@mui/material'
 import CartPage from 'pages/Cart/CartPage'
+import productsArray, { getProductsObject } from 'utils/productsArray'
 
 type Props = {}
 
@@ -44,7 +45,12 @@ const App = (props: Props) => {
                                 <Home addProductToCart={addProductToCart} />
                             }
                         />
-                        <Route path="cart" element={<CartPage />} />
+                        <Route
+                            path="cart"
+                            element={
+                                <CartPage productsInCart={productsInCart} />
+                            }
+                        />
                     </Routes>
                 </Container>
 
