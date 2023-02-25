@@ -9,6 +9,7 @@ import Home from 'pages/Home/Home'
 import { Container } from '@mui/material'
 import CartPage from 'pages/Cart/CartPage'
 import productsArray, { getProductsObject } from 'utils/productsArray'
+import { omit } from 'lodash'
 
 type Props = {}
 
@@ -28,11 +29,7 @@ const App = (props: Props) => {
         }))
     }
     const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => {
-            let prevProductsInCart = { ...prevState }
-            delete prevProductsInCart[id]
-            return prevProductsInCart
-        })
+        setProductsInCart((prevState) => omit(prevState, [id]))
     }
 
     return (
@@ -40,9 +37,6 @@ const App = (props: Props) => {
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header productsInCart={productsInCart} />
-                <button onClick={() => removeProductFromCart(1)}>
-                    Delete product
-                </button>
                 <Container
                     sx={{
                         padding: '60px 0',
@@ -58,7 +52,12 @@ const App = (props: Props) => {
                         <Route
                             path="cart"
                             element={
-                                <CartPage productsInCart={productsInCart} />
+                                <CartPage
+                                    productsInCart={productsInCart}
+                                    removeProductFromCart={
+                                        removeProductFromCart
+                                    }
+                                />
                             }
                         />
                     </Routes>
