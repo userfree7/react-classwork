@@ -31,6 +31,12 @@ const App = (props: Props) => {
     const removeProductFromCart = (id: number) => {
         setProductsInCart((prevState) => omit(prevState, [id]))
     }
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
 
     return (
         <>
@@ -56,6 +62,9 @@ const App = (props: Props) => {
                                     productsInCart={productsInCart}
                                     removeProductFromCart={
                                         removeProductFromCart
+                                    }
+                                    changeProductQuantity={
+                                        changeProductQuantity
                                     }
                                 />
                             }
